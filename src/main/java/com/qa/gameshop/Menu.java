@@ -1,5 +1,9 @@
 package com.qa.gameshop;
 
+import com.qa.gameshop.entities.Customer;
+import com.qa.gameshop.entities.Order;
+import com.qa.gameshop.entities.Product;
+
 import java.util.Scanner;
 
 public class Menu {
@@ -77,7 +81,7 @@ public class Menu {
                             System.out.println("Price:");
                             float price = sc.nextFloat();
                             sc.nextLine();
-                            //crud.create(tableChoice, new Order(custID, prodID, quantity, price));
+                            //crud.create(tableChoice, new Order(prodID, custID, price, quantity));
                         }
                         break;
                     case 2:
