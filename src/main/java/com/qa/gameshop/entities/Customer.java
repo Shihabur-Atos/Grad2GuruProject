@@ -13,6 +13,13 @@ public class Customer {
         this.email = email;
     }
 
+    public Customer(int customerID, String customerName, int age, String email) {
+        this.customerID = customerID;
+        this.customerName = customerName;
+        this.age = age;
+        this.email = email;
+    }
+
     public int getCustomerID() {
         return customerID;
     }
@@ -43,5 +50,15 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerID=" + customerID +
+                ", customerName='" + customerName + '\'' +
+                ", age=" + age +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
