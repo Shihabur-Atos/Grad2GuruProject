@@ -2,28 +2,9 @@
 
 ## Table Design
 
-### Tables
-#### Product
-  - ProductID
-  - ProductName
-  - Genre
-  - Price
-  - Quantity
-  
-#### Orders
-  - OrderID
-  - CustomerID
-  - ProductID
-  - Price
-  - Quantity
-  
-#### Customer
-  - CustomerID
-  - CustomerName
-  - Age
-  - Email
-  
-Orders will link between Product and Customer and will be able to perform CRUD functions on all 3 tables
+### ERD
+
+![](gitResources/Project%20ERD.png)
 
 
 ## Project Deliverable
