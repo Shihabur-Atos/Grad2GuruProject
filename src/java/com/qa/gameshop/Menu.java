@@ -6,8 +6,8 @@ public class Menu {
 
     public static Scanner sc = new Scanner(System.in);
 
-    public int crudChoice() {
-        System.out.println("--------------Game Shop Management----------------");
+    public int getCRUDChoice() {
+        System.out.println("--------------Game Shop Management System----------------");
         System.out.println("Please choose the following options by entering the number:");
         System.out.println("1. Add an entry");
         System.out.println("2. Delete an entry");
@@ -17,20 +17,30 @@ public class Menu {
         return sc.nextInt();
     }
 
+    public int getTableChoice() {
+        System.out.println("Which table would you like to use?");
+        System.out.println("Please choose the following options by entering the number:");
+        System.out.println("1. Customers");
+        System.out.println("2. Products");
+        System.out.println("3. Orders");
+        int tableChoice = sc.nextInt();
+        sc.nextLine();
+        if(tableChoice < 0 || tableChoice > 3) {
+            System.out.println("Invalid choice");
+            getTableChoice();
+        }
+        return tableChoice;
+    }
+
     public void options() {
-        int choice = crudChoice();
+        CRUDOperations crud = new CRUDOperations();
+        int choice = getCRUDChoice();
         try {
             do {
-                System.out.println("Which table would you like to use?");
-                System.out.println("Please choose the following options by entering the number:");
-                System.out.println("1. Customers");
-                System.out.println("2. Products");
-                System.out.println("3. Orders");
-                int tableChoice = sc.nextInt();
-
+                int tableChoice = getTableChoice();
                 switch (choice) {
-                    case 1 :
-                        if(tableChoice == 1) {
+                    case 1:
+                        if (tableChoice == 1) {
                             System.out.println("Customer Name:");
                             String name = sc.nextLine();
                             System.out.println("Age:");
@@ -38,8 +48,8 @@ public class Menu {
                             sc.nextLine();
                             System.out.println("Email:");
                             String email = sc.nextLine();
-                            crudOptions(tableChoice, new Customer(name, age, price, quantity));
-                        } else if(tableChoice == 2) {
+                            crud.create(tableChoice, new Customer(name, age, email));
+                        } else if (tableChoice == 2) {
                             System.out.println("Product Name:");
                             String name = sc.nextLine();
                             System.out.println("Genre:");
@@ -50,8 +60,8 @@ public class Menu {
                             System.out.println("Quantity:");
                             int quantity = sc.nextInt();
                             sc.nextLine();
-                            crudOptions(tableChoice, new Product(name, genre, price, quantity));
-                        } else if(tableChoice == 3) {
+                            crud.create(tableChoice, new Product(name, genre, price, quantity));
+                        } else if (tableChoice == 3) {
                             System.out.println("CustomerID:");
                             int custID = sc.nextInt();
                             sc.nextLine();
@@ -64,24 +74,43 @@ public class Menu {
                             System.out.println("Price:");
                             float price = sc.nextFloat();
                             sc.nextLine();
-                            crudOptions(tableChoice, new Order(custID, prodID, quantity, price));
+                            crud.create(tableChoice, new Order(custID, prodID, quantity, price));
                         }
                         break;
-                    case 2 :
+                    case 2:
+                        System.out.println("Enter the id of the record to delete");
+                        int id = sc.nextInt();
+                        sc.nextLine();
+                        crud.delete(tableChoice, id);
+                    case 3:
+                        crud.view(tableChoice);
                         break;
-                    case 3 :
-                        /////
+                    case 4:
+                        System.out.println("Enter the ID of the record to update");
+                        int uid = sc.nextInt();
+                        sc.nextLine();
+                        System.out.println("What column would you like to update?");
+                        String column = sc.nextLine().toLowerCase();
+                        System.out.println("What do you want to replace the column value to?");
+                        String newValue = sc.nextLine();
+                        crud.update(tableChoice, uid, column, newValue);
                         break;
-                    case 4 :
-                        break;
-                    case 5 :
-                        break;
-
+                    default:
+                        System.out.println("Invalid option");
                 }
-
+                System.out.println("Would you like to continue? (y/n)");
+                String quit = sc.nextLine();
+                if (quit.equalsIgnoreCase("y")) {
+                    choice = getCRUDChoice();
+                } else if (quit.equalsIgnoreCase("n")) {
+                    choice = 5;
+                } else {
+                    System.out.println("Please enter 'y' or 'n'");
+                }
             } while (choice != 5);
         } finally {
             System.out.println("Connection ended");
+            crud.closeConnection();
         }
     }
 }
