@@ -13,5 +13,5 @@ A CRUD application that will have a console interface to allow users to manage a
 
 ### Additional Features
  - Search functionality for each table by ID, name
- - Potentially find the highest priced order/ highest stock available
+ - Potentially find the highest priced order/ the highest stock available
  - Potentially Front-End website if time allows
