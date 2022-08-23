@@ -89,13 +89,40 @@ public class Menu {
                         int id = sc.nextInt();
                         sc.nextLine();
                         crud.delete(tableChoice, id);
+                        break;
                     case 3:
-                        if(tableChoice == 1) {
-                            crud.viewCustomers();
-                        } else if(tableChoice == 2) {
-                            crud.viewProducts();
-                        } else if(tableChoice == 3) {
-                            crud.viewOrders();
+                        System.out.println("Please specify how you would like to view entries by entering the number:");
+                        System.out.println("1. View all entries in the table");
+                        System.out.println("2. View an entry by its table ID");
+                        int vChoice = sc.nextInt();
+                        sc.nextLine();
+                        switch(vChoice) {
+                            case 1:
+                                if(tableChoice == 1) {
+                                    crud.viewCustomers();
+                                } else if(tableChoice == 2) {
+                                    crud.viewProducts();
+                                } else if(tableChoice == 3) {
+                                    crud.viewOrders();
+                                }
+                                break;
+                            case 2:
+                                if(tableChoice == 1) {
+                                    System.out.println("customerID:");
+                                    int uid = sc.nextInt();
+                                    sc.nextLine();
+                                    crud.findCustomerByID(uid);
+                                } else if(tableChoice == 2) {
+                                    System.out.println("productID:");
+                                    int uid = sc.nextInt();
+                                    sc.nextLine();
+                                    crud.findProductByID(uid);
+                                } else if(tableChoice == 3) {
+                                    System.out.println("orderID:");
+                                    int uid = sc.nextInt();
+                                    sc.nextLine();
+                                    crud.findOrderByID(uid);
+                                }
                         }
                         break;
                     case 4:
