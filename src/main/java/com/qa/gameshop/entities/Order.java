@@ -4,8 +4,16 @@ public class Order {
     private int orderID;
     private int productID;
     private int customerID;
-    private double price;
+    private float price;
     private int quantity;
+
+    public Order(int orderID, int productID, int customerID, int quantity, float price) {
+        this.orderID = orderID;
+        this.productID = productID;
+        this.customerID = customerID;
+        this.quantity = quantity;
+        this.price = price;
+    }
 
     public Order(int productID, int customerID, float price, int quantity) {
         this.productID = productID;
@@ -42,7 +50,7 @@ public class Order {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -52,5 +60,16 @@ public class Order {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderID=" + orderID +
+                ", productID=" + productID +
+                ", customerID=" + customerID +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
     }
 }

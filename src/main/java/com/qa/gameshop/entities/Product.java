@@ -7,6 +7,14 @@ public class Product {
     private float price;
     private int quantity;
 
+    public Product(int productID, String productName, String genre, float price, int quantity) {
+        this.productID = productID;
+        this.productName = productName;
+        this.genre = genre;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     public Product(String productName, String genre, float price, int quantity) {
         this.productName = productName;
         this.genre = genre;
@@ -52,5 +60,16 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productID=" + productID +
+                ", productName='" + productName + '\'' +
+                ", genre='" + genre + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
     }
 }
