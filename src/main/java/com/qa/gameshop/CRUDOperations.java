@@ -150,5 +150,40 @@ public class CRUDOperations {
         return orders;
     }
 
+
+    public void update(int tableChoice, int uid, String column, String newValue) {
+        String updateStatement = null;
+        String tableName = null;
+        switch(tableChoice) {
+            case 1:
+                if(column.equals("customerName") || column.equals("email")) {
+                    updateStatement = "UPDATE customers SET " + column + " = '" + newValue + "' WHERE customerID = " + uid + ";";
+                } else {
+                    updateStatement = "UPDATE customers SET " + column + " = " + newValue + " WHERE customerID = " + uid + ";";
+                }
+                tableName = "Customers";
+                break;
+            case 2:
+                updateStatement = "UPDATE products SET " + column + " = " + newValue + " WHERE productID = " + uid + ";";
+                tableName = "Products";
+                break;
+            case 3:
+                if(column.equals("productName") || column.equals("genre")) {
+                    updateStatement = "UPDATE orders SET " + column + " = '" + newValue + "' WHERE orderID = " + uid + ";";
+                } else {
+                    updateStatement = "UPDATE orders SET " + column + " = " + newValue + " WHERE orderID = " + uid + ";";
+                }
+                tableName = "Orders";
+                break;
+        }
+
+        try {
+            statement.executeUpdate(updateStatement);
+            System.out.println("At ID: " + uid + ", the field " + column + " in " + tableName + " has been updated");
+        } catch (SQLException e) {
+            System.out.println("Something went wrong");
+            e.printStackTrace();
+        }
+    }
 }
 

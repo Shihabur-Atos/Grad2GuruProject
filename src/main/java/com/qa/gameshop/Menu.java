@@ -103,10 +103,10 @@ public class Menu {
                         int uid = sc.nextInt();
                         sc.nextLine();
                         System.out.println("What column would you like to update?");
-                        String column = sc.nextLine().toLowerCase();
+                        String column = sc.nextLine();
                         System.out.println("What do you want to replace the column value to?");
                         String newValue = sc.nextLine();
-                        //crud.update(tableChoice, uid, column, newValue);
+                        crud.update(tableChoice, uid, column, newValue);
                         break;
                     default:
                         System.out.println("Invalid option");
