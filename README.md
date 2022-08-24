@@ -16,6 +16,9 @@ A CRUD application that will have a console interface to allow users to manage a
  - Potentially find the highest priced order/ the highest stock available
  - Potentially Front-End website if time allows
  
+ ## Roadmap from JIRA using an MVP/Agile Methodology
+ 
+ ![](gitResources/Roadmap.png)
  
  ### Sprint 1
  
@@ -29,7 +32,7 @@ A CRUD application that will have a console interface to allow users to manage a
  
  ### Sprint 3
  
- ![](gitResources/Sprint3.png)
+ ![](gitResources/Sprint%203.png)
  
  
  ### Sprint 4
