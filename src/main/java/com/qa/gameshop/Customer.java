@@ -1,4 +1,4 @@
-package com.qa.gameshop.entities;
+package com.qa.gameshop;
 
 public class Customer {
 
@@ -52,13 +52,4 @@ public class Customer {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "customerID=" + customerID +
-                ", customerName='" + customerName + '\'' +
-                ", age=" + age +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }

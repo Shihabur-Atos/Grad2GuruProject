@@ -1,4 +1,4 @@
-package com.qa.gameshop.entities;
+package com.qa.gameshop;
 
 public class Product {
     private int productID;
@@ -62,14 +62,4 @@ public class Product {
         this.quantity = quantity;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "productID=" + productID +
-                ", productName='" + productName + '\'' +
-                ", genre='" + genre + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                '}';
-    }
 }
