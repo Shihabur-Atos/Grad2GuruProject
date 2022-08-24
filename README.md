@@ -64,8 +64,7 @@ A CRUD application that will have a console interface to allow users to manage a
  
  - This sprint's goal was to ensure all functionality was covered through coverage and ensured that the deliverable was at the highest standard to meet the requirements.
  
- - This proved to be difficult as it required refactoring code a lot and ensuring the testing was covering as much as possible.
+ - This proved to be difficult as it required refactoring code a lot and ensuring the testing was covering as much as possible however I achieved a 66% coverage but this was due to the inability to test the user interface on the console (can be something to improve on)
  
- 
- 
+ ![](gitResources/CodeCoverage.png)
  
