@@ -13,24 +13,26 @@ A CRUD application that will have a console interface to allow users to manage a
  - Search functionality for each table by ID
  - Delete all rows from all tables
  - Implement 60% coverage for testing
+ 
+### ERD
+
+![](gitResources/Project%20ERD.png)
+
 
 ## Technologies used
 - Java
 - MySQL
 - JUnit (as part of Java)
 
-### ERD
-
-![](gitResources/Project%20ERD.png)
-
  
- ## Roadmap from JIRA using an MVP/Agile Methodology
- 
+## Roadmap from JIRA using an MVP/Agile Methodology
  ![](gitResources/Roadmap.png)
  
+ - [Link to JIRA](https://shihabur.atlassian.net/jira/software/projects/CP/boards/2/roadmap?shared=&atlOrigin=eyJpIjoiYmNkN2VhYTE5NTliNGE4ZGJmZWIzMmIzZTRiMmY1OTgiLCJwIjoiaiJ9)
  - This was under the impression that documentation and requirements gathering would be done first then alongside delivery the database creation, I would implement the deliverable before the due date.
  - I included the documentation that included creating this readme file.
  - This was to ensure the project scope was covered in its entirety.
+ 
  
  ### Sprint 1
  
