@@ -1,14 +1,15 @@
 package com.qa.gameshop;
 
-import com.qa.gameshop.entities.Customer;
-import com.qa.gameshop.entities.Order;
-import com.qa.gameshop.entities.Product;
-
 import java.util.Scanner;
 
 public class Menu {
 
     public static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        Menu menu = new Menu();
+        menu.options();
+    }
 
     public int getCRUDChoice() {
         System.out.println("--------------Game Shop Management System----------------");

@@ -1,9 +1,5 @@
 package com.qa.gameshop;
 
-import com.qa.gameshop.entities.Customer;
-import com.qa.gameshop.entities.Order;
-import com.qa.gameshop.entities.Product;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -42,7 +38,7 @@ public class CRUDOperations {
                 + "', " + customer.getAge() + ", '" + customer.getEmail() + "');";
         int pk = 0;
         try{
-            statement.executeUpdate(createStatement);
+            statement.executeUpdate(createStatement, Statement.RETURN_GENERATED_KEYS);
             System.out.println(customer.getCustomerName() + " field has been added");
             results = statement.getGeneratedKeys();
             results.next();
@@ -76,7 +72,7 @@ public class CRUDOperations {
                 + ", " + order.getProductID() + ", " + order.getQuantity() + ", " + order.getPrice() + ");";
         int pk = 0;
         try {
-            statement.executeUpdate(createStatement);
+            statement.executeUpdate(createStatement, Statement.RETURN_GENERATED_KEYS);
             System.out.println(order.getCustomerID() + " field has been added");
             results = statement.getGeneratedKeys();
             results.next();
@@ -86,6 +82,21 @@ public class CRUDOperations {
             e.printStackTrace();
         }
         return this.findOrderByID(pk);
+    }
+
+    public void deleteAll() {
+        String deleteStmt = "DELETE FROM orders;";
+        String deleteStmt2 = "DELETE FROM customers;";
+        String deleteStmt3 = "DELETE FROM products;";
+        try {
+            statement.executeUpdate(deleteStmt);
+            statement.executeUpdate(deleteStmt2);
+            statement.executeUpdate(deleteStmt3);
+            System.out.println("All tables has been removed");
+        } catch (SQLException e) {
+            System.out.println("Something went wrong");
+            e.printStackTrace();
+        }
     }
 
     public void delete(int tableChoice, int id) {
@@ -202,9 +213,8 @@ public class CRUDOperations {
         try {
             results = statement.executeQuery(selectStatement);
             while (results.next()) {
-                order = new Order(results.getInt("orderID"), results.getInt("customerID"),
-                        results.getInt("productID"), results.getInt("quantity"),
-                        results.getFloat("price"));
+                order = new Order(results.getInt("orderID"), results.getInt("productID"), results.getInt("customerID"),
+                        results.getInt("quantity"), results.getFloat("price"));
             }
         } catch (SQLException e) {
             System.out.println("Something went wrong");
@@ -216,6 +226,7 @@ public class CRUDOperations {
     public void update(int tableChoice, int uid, String column, String newValue) {
         String updateStatement = null;
         String tableName = null;
+        int pk = 0;
         switch(tableChoice) {
             case 1:
                 if(column.equals("customerName") || column.equals("email")) {
