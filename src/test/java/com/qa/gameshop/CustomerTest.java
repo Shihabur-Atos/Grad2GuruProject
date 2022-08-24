@@ -1,7 +1,7 @@
-package com.qa.gameshop.entities;
+package com.qa.gameshop;
 
+import com.qa.gameshop.Customer;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.Assert.*;

@@ -1,5 +1,6 @@
-package com.qa.gameshop.entities;
+package com.qa.gameshop;
 
+import com.qa.gameshop.Order;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

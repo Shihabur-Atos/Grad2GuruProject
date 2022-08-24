@@ -1,4 +1,4 @@
-package com.qa.gameshop.entities;
+package com.qa.gameshop;
 
 public class Order {
     private int orderID;
